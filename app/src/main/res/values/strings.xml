@@ -1,0 +1,33 @@
+<resources>
+
+    <string name="app_name">Login_Register</string>
+
+    <string-array name="gender">
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
+    <string-array name="countries_array">
+        <item>Australia</item>
+        <item>Indonesia</item>
+        <item>Malaysia</item>
+        <item>Jepang</item>
+        <item>Korea</item>
+        <item>Cina</item>
+        <item>Inggris</item>
+        <item>Belanda</item>
+        <item>Amerika</item>
+        <item>Kanada</item>
+        <item>Rusia</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+        <item>Korea</item>
+    </string-array>
+</resources>
