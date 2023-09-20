@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(etUsername.getText().toString().equals(Username) && etPassword.getText().toString().equals(Password)){
-                    Intent login = new Intent(MainActivity.this, Activity_Mahasiswa.class);
+                    Intent login = new Intent(MainActivity.this, Activity_mainDashboard.class);
                     startActivity(login);
 
                     Toast.makeText(MainActivity.this, "Login berhasil", Toast.LENGTH_SHORT).show();
