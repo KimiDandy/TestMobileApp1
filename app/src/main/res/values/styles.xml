@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomNavIconStyle">
+        <item name="android:width">70dp</item> <!-- Set the desired width -->
+        <item name="android:height">70dp</item> <!-- Set the desired height -->
+    </style>
+</resources>

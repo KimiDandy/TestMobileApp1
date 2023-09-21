@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_fragment_negara"
+        android:icon="@drawable/baseline_flag_24"
+        android:title=""
+        style="@style/BottomNavIconStyle"
+        />
+    <item
+        android:id="@+id/action_fragment_mahasiswa"
+        android:icon="@drawable/baseline_person_3_24"
+        android:title=""
+        style="@style/BottomNavIconStyle"/>
+    <item
+        android:id="@+id/action_fragment_login"
+        android:icon="@drawable/baseline_lock_24_1"
+        android:title=""
+        style="@style/BottomNavIconStyle"/>
+</menu>

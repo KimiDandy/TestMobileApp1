@@ -1,60 +1,76 @@
 package com.kimi.login_register;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.graphics.Color;
+import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import com.kimi.login_register.R;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kimi.login_register.fragment.FragmentLogin;
 import com.kimi.login_register.fragment.FragmentMahasiswa;
 import com.kimi.login_register.fragment.FragmentNegara;
 
 public class Activity_mainDashboard extends AppCompatActivity {
-    TextView textView1, textView2, textView3;
+    BottomNavigationView bottomNavigationView;
     FragmentNegara fragmentNegara = new FragmentNegara();
     FragmentMahasiswa fragmentMahasiswa = new FragmentMahasiswa();
     FragmentLogin fragmentLogin = new FragmentLogin();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dashboard);
-        textView1 = findViewById(R.id.textview1);
-        textView2 = findViewById(R.id.textview2);
-        textView3 = findViewById(R.id.textview3);
 
         getSupportFragmentManager().beginTransaction().add(R.id.baseFragment, fragmentNegara).commit();
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        textView1.setOnClickListener(new View.OnClickListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.baseFragment, fragmentNegara).commit();
-                textView1.setBackgroundColor(Color.parseColor("#B3B2B8"));
-                textView2.setBackgroundColor(Color.parseColor("#A3A2A7"));
-                textView3.setBackgroundColor(Color.parseColor("#A3A2A7"));
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+
+                int itemId = item.getItemId();
+                if (itemId == R.id.action_fragment_negara) {
+                    selectedFragment = fragmentNegara;
+                } else if (itemId == R.id.action_fragment_mahasiswa) {
+                    selectedFragment = fragmentMahasiswa;
+                } else if (itemId == R.id.action_fragment_login) {
+                    selectedFragment = fragmentLogin;
+                }
+
+                if (selectedFragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.baseFragment, selectedFragment).commit();
+                }
+                return true;
             }
         });
 
-        textView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.baseFragment, fragmentMahasiswa).commit();
-                textView2.setBackgroundColor(Color.parseColor("#B3B2B8"));
-                textView1.setBackgroundColor(Color.parseColor("#A3A2A7"));
-                textView3.setBackgroundColor(Color.parseColor("#A3A2A7"));
-            }
-        });
 
-        textView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.baseFragment, fragmentLogin).commit();
-                textView3.setBackgroundColor(Color.parseColor("#B3B2B8"));
-                textView1.setBackgroundColor(Color.parseColor("#A3A2A7"));
-                textView2.setBackgroundColor(Color.parseColor("#A3A2A7"));
-            }
-        });
+        // Set the icon size for each menu item
+        setIconSize(R.id.action_fragment_negara, 48); // Adjust the size as needed
+        setIconSize(R.id.action_fragment_mahasiswa, 48);
+        setIconSize(R.id.action_fragment_login, 48);
     }
+
+    // Function to set the icon size for a menu item
+    private void setIconSize(int menuItemId, int iconSize) {
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.findItem(menuItemId);
+        if (menuItem != null) {
+            Drawable icon = menuItem.getIcon();
+            if (icon != null) {
+                icon.setBounds(0, 0, iconSize, iconSize);
+                menuItem.setIcon(icon);
+            }
+        }
+    }
+
 }
