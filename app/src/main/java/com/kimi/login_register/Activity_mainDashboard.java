@@ -2,6 +2,7 @@ package com.kimi.login_register;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -30,6 +31,9 @@ public class Activity_mainDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.baseFragment, fragmentNegara).commit();
+                textView1.setBackgroundColor(Color.parseColor("#B3B2B8"));
+                textView2.setBackgroundColor(Color.parseColor("#A3A2A7"));
+                textView3.setBackgroundColor(Color.parseColor("#A3A2A7"));
             }
         });
 
@@ -37,6 +41,9 @@ public class Activity_mainDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.baseFragment, fragmentMahasiswa).commit();
+                textView2.setBackgroundColor(Color.parseColor("#B3B2B8"));
+                textView1.setBackgroundColor(Color.parseColor("#A3A2A7"));
+                textView3.setBackgroundColor(Color.parseColor("#A3A2A7"));
             }
         });
 
@@ -44,6 +51,9 @@ public class Activity_mainDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.baseFragment, fragmentLogin).commit();
+                textView3.setBackgroundColor(Color.parseColor("#B3B2B8"));
+                textView1.setBackgroundColor(Color.parseColor("#A3A2A7"));
+                textView2.setBackgroundColor(Color.parseColor("#A3A2A7"));
             }
         });
     }

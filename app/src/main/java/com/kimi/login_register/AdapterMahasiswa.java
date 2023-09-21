@@ -2,6 +2,7 @@ package com.kimi.login_register;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.kimi.login_register.fragment.FragmentDetailMahasiswa;
 
 import java.util.ArrayList;
 
@@ -19,10 +23,12 @@ public class AdapterMahasiswa extends RecyclerView.Adapter <AdapterMahasiswa.Vie
 
     private ArrayList<Mahasiswa> mahasiswaModel;
     private Context context;
+    private FragmentManager fragmentManager;
 
-    public AdapterMahasiswa(ArrayList<Mahasiswa> mahasiswaModel, Context context) {
+    public AdapterMahasiswa(ArrayList<Mahasiswa> mahasiswaModel, Context context, FragmentManager fragmentManager) {
         this.mahasiswaModel = mahasiswaModel;
         this.context = context;
+        this.fragmentManager = fragmentManager;
     }
 
     @NonNull
@@ -37,15 +43,20 @@ public class AdapterMahasiswa extends RecyclerView.Adapter <AdapterMahasiswa.Vie
     public void onBindViewHolder(@NonNull AdapterMahasiswa.ViewHolder holder, int position) {
         Mahasiswa mahasiswa = mahasiswaModel.get(position);
         holder.namaMahasiswa.setText(mahasiswa.getNama());
-        holder.gambarMahasiswa.setImageResource(mahasiswa.getFoto());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("Debug", "Card view clicked for Mahasiswa: " + mahasiswa.getNama());
-                Intent intent = new Intent(context, Activity_DetailMahasiswa.class);
-                intent.putExtra("selected_mahasiswa", mahasiswa);
-                context.startActivity(intent);
+                FragmentDetailMahasiswa fragmentDetailMahasiswa = new FragmentDetailMahasiswa();
+                Bundle args = new Bundle();
+                args.putParcelable("selected_mahasiswa", mahasiswa);
+                fragmentDetailMahasiswa.setArguments(args);
+
+                fragmentManager.beginTransaction()
+                        .replace(R.id.baseFragment_detail_mahasiswa, fragmentDetailMahasiswa)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }
@@ -58,11 +69,9 @@ public class AdapterMahasiswa extends RecyclerView.Adapter <AdapterMahasiswa.Vie
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView namaMahasiswa;
-        ImageView gambarMahasiswa;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             namaMahasiswa = itemView.findViewById(R.id.nama_mahasiswa);
-            gambarMahasiswa = itemView.findViewById(R.id.gambar_mahasiswa);
 
         }
     }

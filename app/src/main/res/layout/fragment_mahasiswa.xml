@@ -3,30 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FragmentMahasiswa">
+    tools:context=".fragment.FragmentMahasiswa"
+    android:background="@drawable/background_2">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/fragment_daftar_mahasiswa"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Daftar Mahasiswa"
+        android:textSize="35sp"
+        android:fontFamily="@font/righteous"
+        android:gravity="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="70dp">
 
-        <TextView
-            android:id="@+id/fragment_daftar_mahasiswa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Daftar Mahasiswa"
-            android:textSize="35sp"
-            android:fontFamily="@font/righteous"
-            android:gravity="center"
-            />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragment_recycle_view"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_below="@+id/fragment_daftar_mahasiswa"
-            tools:listitem="@layout/mahasiswa_card"/>
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:background="#BEBEC2">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/mahasiswa_card" />
+
+        </RelativeLayout>
+        
+        <FrameLayout
+            android:id="@+id/baseFragment_detail_mahasiswa"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#D9D9D9"
+            />
+        
+    </LinearLayout>
 
 </FrameLayout>

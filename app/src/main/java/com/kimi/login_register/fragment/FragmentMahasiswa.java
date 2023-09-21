@@ -3,6 +3,7 @@ package com.kimi.login_register.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kimi.login_register.Activity_Mahasiswa;
 import com.kimi.login_register.AdapterMahasiswa;
 import com.kimi.login_register.Mahasiswa;
 import com.kimi.login_register.R;
@@ -26,9 +26,10 @@ public class FragmentMahasiswa extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_mahasiswa, container, false);
+        FragmentManager fragmentManager = getChildFragmentManager();
         getDataMahasiswa();
         recyclerView = view.findViewById(R.id.fragment_recycle_view);
-        adapterMahasiswa = new AdapterMahasiswa(mahasiswa, getContext());
+        adapterMahasiswa = new AdapterMahasiswa(mahasiswa, getContext(), fragmentManager);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterMahasiswa);

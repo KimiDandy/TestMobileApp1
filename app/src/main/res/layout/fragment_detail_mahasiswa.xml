@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.FragmentDetailMahasiswa">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/rounded_textview"
+        >
+
+        <ImageView
+            android:id="@+id/gambar_mahasiswa1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/gedung_background"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/nama_mahasiswa1"
+            android:layout_width="277dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="70dp"
+            android:text="Nama Mahasiswa"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/roboto_bold"
+            />
+
+        <TextView
+            android:id="@+id/nim_mahasiswa1"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/nama_mahasiswa1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="Nim Mahasiswa"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/nohp_mahasiswa1"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/nim_mahasiswa1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/rounded_textview"
+            android:drawableStart="@drawable/baseline_local_phone_24"
+            android:drawablePadding="-10dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:text="No Hp Mahasiswa"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>
