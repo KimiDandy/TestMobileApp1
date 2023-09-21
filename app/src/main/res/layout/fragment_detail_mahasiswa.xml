@@ -74,7 +74,7 @@
             android:layout_height="40dp"
             android:layout_below="@+id/nim_mahasiswa1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/rounded_textview1"
             android:drawableStart="@drawable/baseline_local_phone_24"
             android:drawablePadding="-10dp"
